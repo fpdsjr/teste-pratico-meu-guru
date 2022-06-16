@@ -1,7 +1,7 @@
 interface ICreateUserDTO {
-  name: string;
+  nome: string;
   email: string;
-  password: string;
+  senha: string;
 }
 
 export { ICreateUserDTO };
