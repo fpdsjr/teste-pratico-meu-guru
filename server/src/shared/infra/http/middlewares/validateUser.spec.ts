@@ -126,4 +126,18 @@ describe('validate User middleware', () => {
       message: 'senha precisa ser no formato string',
     });
   });
+
+  it('should call next function when the correct body is provide', () => {
+    const httpRequest = {
+      body: {
+        nome: 'any_name',
+        senha: '12345678',
+        email: 'any_email@gmail.com',
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(next).toHaveBeenCalled();
+  });
 });
