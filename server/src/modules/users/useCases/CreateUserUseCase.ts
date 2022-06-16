@@ -1,6 +1,6 @@
 import { User } from '~/modules/users/infra/entities/user';
 import { IUsersRepository } from '~/modules/users/infra/repositories/IUsersRepository';
-import { inject } from 'tsyringe';
+import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
   nome: string;
@@ -8,6 +8,7 @@ interface IRequest {
   senha: string;
 }
 
+@injectable()
 class CreateUserUseCase {
   constructor(
     @inject('UsersRepository')
