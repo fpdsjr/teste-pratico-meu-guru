@@ -4,7 +4,7 @@ import { validateUser } from './validateUser';
 
 describe('validate User middleware', () => {
   const response = {} as Response;
-  const next = {} as NextFunction;
+  const next = jest.fn();
 
   beforeEach(() => {
     response.status = jest.fn().mockReturnValue(response);
