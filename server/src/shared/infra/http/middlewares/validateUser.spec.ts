@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 
 import { validateUser } from './validateUser';
 
-describe('validate User middleware', () => {
+describe('Validate User middleware', () => {
   const response = {} as Response;
   const next = jest.fn();
 
