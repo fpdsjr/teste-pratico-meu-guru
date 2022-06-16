@@ -109,4 +109,21 @@ describe('validate User middleware', () => {
       message: 'o campo senha é obrigatório',
     });
   });
+
+  it('should return 422 if password is not a string', () => {
+    const httpRequest = {
+      body: {
+        nome: 'any_name',
+        senha: 78797987987,
+        email: 'any_email@gmail.com',
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(response.status).toHaveBeenCalledWith(422);
+    expect(response.json).toHaveBeenCalledWith({
+      message: 'senha precisa ser no formato string',
+    });
+  });
 });
