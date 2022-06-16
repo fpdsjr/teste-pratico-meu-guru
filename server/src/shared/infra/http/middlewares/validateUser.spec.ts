@@ -59,4 +59,21 @@ describe('validate User middleware', () => {
       message: 'o campo email é obrigatório',
     });
   });
+
+  it('should return 422 if email is invalid', () => {
+    const httpRequest = {
+      body: {
+        nome: 'any_name',
+        senha: 'any_password',
+        email: 'invalid_email',
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(response.status).toHaveBeenCalledWith(422);
+    expect(response.json).toHaveBeenCalledWith({
+      message: 'formato do campo email invalido',
+    });
+  });
 });
