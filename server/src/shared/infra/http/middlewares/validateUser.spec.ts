@@ -76,4 +76,21 @@ describe('validate User middleware', () => {
       message: 'formato do campo email invalido',
     });
   });
+
+  it('should return 422 if email is not a string', () => {
+    const httpRequest = {
+      body: {
+        nome: 'any_name',
+        senha: 'any_password',
+        email: 98754,
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(response.status).toHaveBeenCalledWith(422);
+    expect(response.json).toHaveBeenCalledWith({
+      message: 'email precisa ser no formato string',
+    });
+  });
 });
