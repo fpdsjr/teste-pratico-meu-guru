@@ -11,7 +11,7 @@ describe('validate User middleware', () => {
     response.json = jest.fn();
   });
 
-  it('should return 400 if no name is provided', () => {
+  it('should return 400 if no name is provide', () => {
     const httpRequest = {
       body: {
         senha: 'any_password',
@@ -44,7 +44,7 @@ describe('validate User middleware', () => {
     });
   });
 
-  it('should return 400 if no email is provided', () => {
+  it('should return 400 if no email is provide', () => {
     const httpRequest = {
       body: {
         nome: 'any_name',
@@ -91,6 +91,22 @@ describe('validate User middleware', () => {
     expect(response.status).toHaveBeenCalledWith(422);
     expect(response.json).toHaveBeenCalledWith({
       message: 'email precisa ser no formato string',
+    });
+  });
+
+  it('should return 400 if no password is provide', () => {
+    const httpRequest = {
+      body: {
+        nome: 'any_name',
+        email: 'any_email@gmail.com',
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(response.status).toHaveBeenCalledWith(400);
+    expect(response.json).toHaveBeenCalledWith({
+      message: 'o campo senha é obrigatório',
     });
   });
 });
