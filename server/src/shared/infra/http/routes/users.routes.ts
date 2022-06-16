@@ -1,10 +1,12 @@
 import { CreateUserController } from '~/modules/users/useCases/CreateUserController';
 import { Router } from 'express';
 
+import { validateUser } from '../middlewares/validateUser';
+
 const usersRouters = Router();
 
 const createUserController = new CreateUserController();
 
-usersRouters.post('/create', createUserController.handle);
+usersRouters.post('/create', validateUser, createUserController.handle);
 
 export { usersRouters };
