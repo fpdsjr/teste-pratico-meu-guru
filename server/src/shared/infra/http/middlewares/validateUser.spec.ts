@@ -43,4 +43,20 @@ describe('validate User middleware', () => {
       message: 'nome precisa ser no formato string',
     });
   });
+
+  it('should return 400 if no email is provided', () => {
+    const httpRequest = {
+      body: {
+        nome: 'any_name',
+        senha: 'any_password',
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(response.status).toHaveBeenCalledWith(400);
+    expect(response.json).toHaveBeenCalledWith({
+      message: 'o campo email é obrigatório',
+    });
+  });
 });
