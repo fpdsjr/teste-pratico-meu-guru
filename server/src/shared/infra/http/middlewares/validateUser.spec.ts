@@ -26,4 +26,21 @@ describe('validate User middleware', () => {
       message: 'o campo nome é obrigatório',
     });
   });
+
+  it('should return 422 if name is not a string', () => {
+    const httpRequest = {
+      body: {
+        nome: 12345,
+        senha: 'any_password',
+        email: 'any_password',
+      },
+    } as Request;
+
+    validateUser(httpRequest, response, next);
+
+    expect(response.status).toHaveBeenCalledWith(422);
+    expect(response.json).toHaveBeenCalledWith({
+      message: 'nome precisa ser no formato string',
+    });
+  });
 });
