@@ -1,4 +1,5 @@
 import { IUsersRepository } from '~/modules/users/infra/repositories/IUsersRepository';
+import { hashPassword } from '~/utils/hashPassword';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
@@ -16,7 +17,9 @@ class UpdateUserUseCase {
   ) {}
 
   async execute({ id, nome, email, senha }: IRequest) {
-    const updateUser = await this.usersRepository.updateUser({ id, nome, email, senha });
+    const hash = await hashPassword(senha);
+
+    const updateUser = await this.usersRepository.updateUser({ id, nome, email, senha: hash });
 
     return updateUser;
   }
