@@ -1,7 +1,6 @@
+import { prisma } from '~/shared/infra/database/prisma';
+import { app } from '~/shared/infra/http/app';
 import request from 'supertest';
-
-import { prisma } from '../../../../shared/infra/database/prisma';
-import { app } from '../../../../shared/infra/http/app';
 
 describe('Create User Controller', () => {
   afterAll(async () => {
