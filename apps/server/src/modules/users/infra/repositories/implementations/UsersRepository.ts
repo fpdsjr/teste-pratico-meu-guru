@@ -32,6 +32,16 @@ class UsersRepository implements IUsersRepository {
 
     return updateUser;
   }
+
+  async deleteUser(id: string): Promise<User> {
+    const softDeleteUser = await prisma.users.delete({
+      where: {
+        id,
+      },
+    });
+
+    return softDeleteUser;
+  }
 }
 
 export { UsersRepository };
