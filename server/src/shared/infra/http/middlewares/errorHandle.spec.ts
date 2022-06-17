@@ -1,3 +1,4 @@
+import { AppError } from '~/shared/errors/AppError';
 import { NextFunction, Response, Request } from 'express';
 
 import { errorHandle } from './errorHandle';
@@ -20,6 +21,17 @@ describe('Error Handle middleware', () => {
     expect(response.json).toBeCalledWith({
       status: 'error',
       message: 'internal server error - error unhandled',
+    });
+  });
+
+  it('should return the message and code from AppError instance', () => {
+    const error = new AppError('app error instance', 400);
+
+    errorHandle(error, request, response, next);
+
+    expect(response.status).toBeCalledWith(400);
+    expect(response.json).toBeCalledWith({
+      message: 'app error instance',
     });
   });
 });
