@@ -9,7 +9,7 @@ class User {
 
   senha: string;
 
-  deletado: boolean;
+  deletado?: boolean;
 
   constructor() {
     if (!this.id) {
