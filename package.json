@@ -9,10 +9,13 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "test":  "turbo run test",
-    "dev": "turbo run dev --parallel"
+    "test": "turbo run test",
+    "dev": "turbo run dev --parallel",
+    "postinstall": "husky install .husky",
+    "prepare": "husky install .husky"
   },
   "devDependencies": {
+    "husky": "^8.0.1",
     "turbo": "^1.2.16"
   }
 }
