@@ -1,5 +1,6 @@
 import { User } from '~/modules/users/infra/entities/user';
 import { IUsersRepository } from '~/modules/users/infra/repositories/IUsersRepository';
+import argon from 'argon2';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
@@ -16,7 +17,9 @@ class CreateUserUseCase {
   ) {}
 
   async execute({ nome, email, senha }: IRequest): Promise<User> {
-    const createUser = await this.usersRepository.createUser({ nome, email, senha });
+    const hashPassword = await argon.hash(senha);
+
+    const createUser = await this.usersRepository.createUser({ nome, email, senha: hashPassword });
 
     return createUser;
   }
