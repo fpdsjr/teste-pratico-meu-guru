@@ -11,10 +11,11 @@ datasource db {
 }
 
 model Users {
-  id    String @id @default(uuid())
-  nome  String
-  email String
-  senha String
+  id       String  @id @default(uuid())
+  nome     String
+  email    String
+  senha    String
+  deletado Boolean @default(false)
 
   @@map("users")
 }
