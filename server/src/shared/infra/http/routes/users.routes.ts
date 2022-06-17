@@ -1,4 +1,4 @@
-import { CreateUserController } from '~/modules/users/useCases/CreateUserController';
+import { CreateUserController } from '~/modules/users/useCases/createUser/CreateUserController';
 import { Router } from 'express';
 
 import { validateUser } from '../middlewares/validateUser';
