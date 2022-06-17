@@ -1,4 +1,5 @@
 import { ICreateUserDTO } from '~/modules/users/dtos/ICreateUserDTO';
+import { IListUsersByPaginationDTO } from '~/modules/users/dtos/IListUsersByPaginationDTO';
 import { IUpdateUserDTO } from '~/modules/users/dtos/IUpdateUserDTO';
 import { User } from '~/modules/users/infra/entities/user';
 import { prisma } from '~/shared/infra/database/prisma';
@@ -41,6 +42,29 @@ class UsersRepository implements IUsersRepository {
     });
 
     return softDeleteUser;
+  }
+
+  async listUsersWithoutFilter({ page, limit = 10 }: { page: number; limit: number }): Promise<User[]> {
+    const listUsersWithoutFilter = await prisma.users.findMany({
+      skip: page * 10,
+      take: limit,
+    });
+
+    return listUsersWithoutFilter;
+  }
+
+  async listUsersByPagination({ page, limit, filter, param }: IListUsersByPaginationDTO): Promise<User[]> {
+    const listUsersByPagination = await prisma.users.findMany({
+      skip: page * 10,
+      take: limit,
+      where: {
+        [filter]: {
+          equals: param,
+        },
+      },
+    });
+
+    return listUsersByPagination;
   }
 }
 
