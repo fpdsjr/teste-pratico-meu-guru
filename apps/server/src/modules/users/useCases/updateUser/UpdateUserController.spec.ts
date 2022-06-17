@@ -14,8 +14,6 @@ describe('Update User Controller', () => {
       senha: '123456',
     });
 
-    console.log(createUser.body.id);
-
     const updateUser = await request(app).put(`/users/update/${createUser.body.id}`).send({
       nome: 'Flávio Pereira',
       email: 'fpdsjr@mail.com',
