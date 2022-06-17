@@ -40,6 +40,18 @@ class UsersRepositoryInMemory implements IUsersRepository {
 
     return updateUser;
   }
+
+  async deleteUser(id: string): Promise<User> {
+    const findUser = this.usersRepository.find(user => user.id === id);
+
+    if (!findUser) {
+      throw new AppError('User not found', 400);
+    }
+
+    const deleteUser = { ...findUser, deletado: true };
+
+    return deleteUser;
+  }
 }
 
 export { UsersRepositoryInMemory };
