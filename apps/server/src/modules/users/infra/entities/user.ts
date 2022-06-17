@@ -9,6 +9,8 @@ class User {
 
   senha: string;
 
+  deletado: boolean;
+
   constructor() {
     if (!this.id) {
       this.id = uuidv4();
