@@ -4,6 +4,7 @@ import { ListUsersByPaginationController } from '~/modules/users/useCases/listUs
 import { UpdateUserController } from '~/modules/users/useCases/updateUser/UpdateUserController';
 import { Router } from 'express';
 
+import { validateQueries } from '../middlewares/validateQueries';
 import { validateUser } from '../middlewares/validateUser';
 
 const usersRouters = Router();
@@ -17,7 +18,7 @@ usersRouters.post('/create', validateUser, createUserController.handle);
 
 usersRouters.put('/update/:id', validateUser, updateUserController.handle);
 
-usersRouters.get('/list', listUsersByPaginationController.handle);
+usersRouters.get('/list', validateQueries, listUsersByPaginationController.handle);
 
 usersRouters.delete('/delete/:id', deleteUserController.handle);
 
