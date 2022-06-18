@@ -3,13 +3,6 @@ import { container } from 'tsyringe';
 
 import { ListUsersByPaginationUseCase } from './ListUsersByPaginationUseCase';
 
-interface IConvertQueries {
-  pageToNumber: number;
-  limitToNumber: number;
-  filterToString: string;
-  searchToString: 'email' | 'nome';
-}
-
 class ListUsersByPaginationController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { page, limit, filter, search } = request.query;
@@ -17,11 +10,11 @@ class ListUsersByPaginationController {
     const convertQueryTypeParams = {
       pageToNumber: Number(page),
       limitToNumber: Number(limit),
-      filterToString: filter,
-      searchToString: search,
-    } as IConvertQueries;
+      filterToString: filter as 'email' | 'nome',
+      searchToString: search as string,
+    };
 
-    const { pageToNumber, limitToNumber, searchToString, filterToString } = convertQueryTypeParams;
+    const { pageToNumber, limitToNumber, filterToString, searchToString } = convertQueryTypeParams;
 
     const listUsersByPaginationUseCase = container.resolve(ListUsersByPaginationUseCase);
 
