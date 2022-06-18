@@ -5,23 +5,24 @@ import { ListUsersByPaginationUseCase } from './ListUsersByPaginationUseCase';
 
 class ListUsersByPaginationController {
   async handle(request: Request, response: Response): Promise<Response> {
-    const { page, limit, param, filter } = request.query;
+    const { page, limit, filter, search } = request.query;
+    console.log(search);
 
     const convertQueryTypeParams = {
       pageToNumber: Number(page),
       limitToNumber: Number(limit),
-      paramToString: String(param),
       filterToString: String(filter),
+      searchToString: String(search),
     };
-    const { pageToNumber, limitToNumber, paramToString, filterToString } = convertQueryTypeParams;
+    const { pageToNumber, limitToNumber, searchToString, filterToString } = convertQueryTypeParams;
 
     const listUsersByPaginationUseCase = container.resolve(ListUsersByPaginationUseCase);
 
     const listUsersByPagination = await listUsersByPaginationUseCase.execute({
       page: pageToNumber,
       limit: limitToNumber,
-      filter: paramToString,
-      param: filterToString,
+      filter: filterToString,
+      search: searchToString,
     });
 
     return response.status(200).json(listUsersByPagination);
