@@ -18,6 +18,7 @@ class UsersRepository implements IUsersRepository {
         id: true,
         nome: true,
         email: true,
+        deletado: true,
       },
     });
 
