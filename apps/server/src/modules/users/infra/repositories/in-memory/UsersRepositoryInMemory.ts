@@ -22,12 +22,14 @@ class UsersRepositoryInMemory implements IUsersRepository {
     return user;
   }
 
-  async updateUser({ id, nome, email, senha }: IUpdateUserDTO): Promise<User> {
-    const findUser = this.usersRepository.find(user => user.id === id);
+  async findUserById(id: string): Promise<User> {
+    const findUserById = this.usersRepository.find(user => user.id === id);
 
-    if (!findUser) {
-      throw new AppError('User not found', 400);
-    }
+    return findUserById!;
+  }
+
+  async updateUser({ id, nome, email, senha }: IUpdateUserDTO): Promise<User> {
+    const findUser = await this.findUserById(id);
 
     const updateUser = Object.assign(findUser, {
       id,
@@ -42,11 +44,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
   }
 
   async deleteUser(id: string): Promise<User> {
-    const findUser = this.usersRepository.find(user => user.id === id);
-
-    if (!findUser) {
-      throw new AppError('User not found', 400);
-    }
+    const findUser = await this.findUserById(id);
 
     const deleteUser = { ...findUser, deletado: true };
 
