@@ -53,13 +53,13 @@ class UsersRepository implements IUsersRepository {
     return listUsersWithoutFilter;
   }
 
-  async listUsersByPagination({ page, limit, filter, param }: IListUsersByPaginationDTO): Promise<User[]> {
+  async listUsersByPagination({ page, limit, filter, search }: IListUsersByPaginationDTO): Promise<User[]> {
     const listUsersByPagination = await prisma.users.findMany({
       skip: page * 10,
       take: limit,
       where: {
         [filter]: {
-          equals: param,
+          contains: search,
         },
       },
     });
