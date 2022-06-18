@@ -7,19 +7,24 @@ import { prisma } from '~/shared/infra/database/prisma';
 import { IUsersRepository } from '../IUsersRepository';
 
 class UsersRepository implements IUsersRepository {
-  async createUser({ nome, email, senha }: ICreateUserDTO): Promise<User> {
+  async createUser({ nome, email, senha }: ICreateUserDTO): Promise<Omit<User, 'senha'>> {
     const createUser = await prisma.users.create({
       data: {
         nome,
         email,
         senha,
       },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+      },
     });
 
     return createUser;
   }
 
-  async updateUser({ id, nome, email, senha }: IUpdateUserDTO): Promise<User> {
+  async updateUser({ id, nome, email, senha }: IUpdateUserDTO): Promise<Omit<User, 'senha'>> {
     const updateUser = await prisma.users.update({
       where: {
         id,
@@ -28,6 +33,12 @@ class UsersRepository implements IUsersRepository {
         nome,
         email,
         senha,
+      },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+        deletado: true,
       },
     });
 
@@ -43,6 +54,7 @@ class UsersRepository implements IUsersRepository {
         id: true,
         nome: true,
         email: true,
+        deletado: true,
       },
     });
 
@@ -53,6 +65,12 @@ class UsersRepository implements IUsersRepository {
     const listUsersWithoutFilter = await prisma.users.findMany({
       skip: page * 10,
       take: limit,
+      select: {
+        id: true,
+        nome: true,
+        email: true,
+        deletado: true,
+      },
     });
 
     return listUsersWithoutFilter;
@@ -75,6 +93,7 @@ class UsersRepository implements IUsersRepository {
         id: true,
         nome: true,
         email: true,
+        deletado: true,
       },
     });
 
