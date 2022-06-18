@@ -129,4 +129,30 @@ describe('List Users By Pagination UseCase', () => {
 
     expect(response.length).toBe(2);
   });
+
+  it('should not be able to list Users by pagination if wrong filter is provide', async () => {
+    await usersRepositoryInMemory.createUser({
+      nome: 'Flávio Junior',
+      email: 'valid@mail.com',
+      senha: '123456',
+    });
+
+    await usersRepositoryInMemory.createUser({
+      nome: 'Flávio Pereira',
+      email: 'another@mail.com',
+      senha: '123456',
+    });
+
+    await usersRepositoryInMemory.createUser({
+      nome: 'Flávio Pereira',
+      email: 'another@mail.com',
+      senha: '123456',
+    });
+
+    const queryParams = { page: 0, limit: 10, filter: 'nome' as const, search: 'wrong' };
+
+    await expect(listUsersByPaginationUseCase.execute(queryParams)).rejects.toEqual(
+      new AppError('Não foi possível encontrar um resultado valido para o filtro', 404)
+    );
+  });
 });
