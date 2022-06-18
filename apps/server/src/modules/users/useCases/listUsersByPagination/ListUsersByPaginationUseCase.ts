@@ -17,7 +17,7 @@ class ListUsersByPaginationUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute({ page, limit, filter, search }: IRequest): Promise<User[]> {
+  async execute({ page, limit, filter, search }: IRequest): Promise<Omit<User, 'senha'>[]> {
     try {
       const listUsersByPagination = await this.usersRepository.listUsersByPagination({ page, limit, filter, search });
 

@@ -1,3 +1,4 @@
+import { User } from '~/modules/users/infra/entities/user';
 import { IUsersRepository } from '~/modules/users/infra/repositories/IUsersRepository';
 import { inject, injectable } from 'tsyringe';
 
@@ -8,7 +9,7 @@ class DeleteUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute(id: string) {
+  async execute(id: string): Promise<Omit<User, 'senha'>> {
     const deleteUser = await this.usersRepository.deleteUser(id);
 
     return deleteUser;

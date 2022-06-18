@@ -16,7 +16,7 @@ class CreateUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute({ nome, email, senha }: IRequest): Promise<User> {
+  async execute({ nome, email, senha }: IRequest): Promise<Omit<User, 'senha'>> {
     const hash = await hashPassword(senha);
 
     const createUser = await this.usersRepository.createUser({ nome, email, senha: hash });

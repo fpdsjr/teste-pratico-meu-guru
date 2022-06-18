@@ -34,17 +34,22 @@ class UsersRepository implements IUsersRepository {
     return updateUser;
   }
 
-  async deleteUser(id: string): Promise<User> {
+  async deleteUser(id: string): Promise<Omit<User, 'senha'>> {
     const softDeleteUser = await prisma.users.delete({
       where: {
         id,
+      },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
       },
     });
 
     return softDeleteUser;
   }
 
-  async listUsersWithoutFilter({ page, limit = 10 }: { page: number; limit: number }): Promise<User[]> {
+  async listUsersWithoutFilter({ page, limit = 10 }: { page: number; limit: number }): Promise<Omit<User, 'senha'>[]> {
     const listUsersWithoutFilter = await prisma.users.findMany({
       skip: page * 10,
       take: limit,
@@ -53,7 +58,7 @@ class UsersRepository implements IUsersRepository {
     return listUsersWithoutFilter;
   }
 
-  async listUsersByPagination({ page, limit, filter, search }: IListUsersByPaginationDTO): Promise<User[]> {
+  async listUsersByPagination({ page, limit, filter, search }: IListUsersByPaginationDTO): Promise<Omit<User, 'senha'>[]> {
     if (!filter && !search) {
       return this.listUsersWithoutFilter({ page, limit });
     }
@@ -65,6 +70,11 @@ class UsersRepository implements IUsersRepository {
         [filter]: {
           contains: search,
         },
+      },
+      select: {
+        id: true,
+        nome: true,
+        email: true,
       },
     });
 
