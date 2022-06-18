@@ -1,12 +1,13 @@
 import { User } from '~/modules/users/infra/entities/user';
 import { IUsersRepository } from '~/modules/users/infra/repositories/IUsersRepository';
+import { AppError } from '~/shared/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
   page: number;
   limit: number;
-  filter: string;
-  param: string;
+  filter: 'nome' | 'email';
+  search: string;
 }
 
 @injectable()
@@ -16,16 +17,14 @@ class ListUsersByPaginationUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute({ page, limit, filter, param }: IRequest): Promise<User[] | undefined> {
-    if (!filter && !param) {
-      const listUsersWithoutFilter = await this.usersRepository.listUsersWithoutFilter({ page, limit });
+  async execute({ page, limit, filter, search }: IRequest): Promise<User[]> {
+    try {
+      const listUsersByPagination = await this.usersRepository.listUsersByPagination({ page, limit, filter, search });
 
-      return listUsersWithoutFilter;
+      return listUsersByPagination;
+    } catch {
+      throw new AppError('Não foi possível encontrar um resultado valido para o filtro', 404);
     }
-
-    const listUsersByPagination = await this.usersRepository.listUsersByPagination({ page, limit, filter, param });
-
-    return listUsersByPagination;
   }
 }
 
