@@ -1,8 +1,10 @@
+type SearchTypes = 'nome' | 'email';
+
 interface IListUsersByPaginationDTO {
   page: number;
   limit: number;
-  param: string;
   filter: string;
+  search: SearchTypes;
 }
 
 export { IListUsersByPaginationDTO };
