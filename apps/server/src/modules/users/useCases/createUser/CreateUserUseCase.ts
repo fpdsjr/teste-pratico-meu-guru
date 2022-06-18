@@ -1,7 +1,6 @@
 import { User } from '~/modules/users/infra/entities/user';
 import { IUsersRepository } from '~/modules/users/infra/repositories/IUsersRepository';
 import { hashPassword } from '~/utils/hashPassword';
-import argon from 'argon2';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
