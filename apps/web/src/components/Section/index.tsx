@@ -15,10 +15,10 @@ function Section() {
 
   return (
     <Container>
-      <input type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} />
+      <input type="text" value={inputValue} placeholder="Digite sua busca." onChange={e => setInputValue(e.target.value)} />
       <select value={selectOption} onChange={e => setSelectOption(e.target.value)}>
-        <option value="nome">nome</option>
-        <option value="email">email</option>
+        <option value="nome">Nome</option>
+        <option value="email">Email</option>
       </select>
       <button type="button" onClick={handleClick}>
         Filtrar
