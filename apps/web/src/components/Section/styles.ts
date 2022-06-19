@@ -13,10 +13,10 @@ export const Container = styled.div`
     height: 40px;
     border-radius: 0.25rem;
     padding: 0 0.5rem;
-    color: #2a004f;
+    color: var(#2a004f);
 
     &:focus {
-      border: 2px solid #03bb96;
+      border: 2px solid var(--cyan-500);
       outline: none;
     }
   }
@@ -24,25 +24,26 @@ export const Container = styled.div`
   select {
     width: 90px;
     height: 40px;
-    color: #2a004f;
+    color: var(#2a004f);
     font-weight: 600;
     padding: 0 0.75rem;
     border-radius: 0.25rem;
 
     &:focus {
-      border: 2px solid #03bb96;
+      border: 2px solid var(--cyan-500);
       outline: none;
     }
   }
 
   button {
     width: 90px;
-    color: #2a004f;
+    color: var(#2a004f);
     height: 40px;
     font-weight: 600;
     font-size: 1.05rem;
     border-radius: 0.25rem;
-    background-color: #03bb96;
+    background-color: var(--cyan-500);
+    box-shadow: 0 8px 8px -8px #06a78d;
 
     transition: all 0.5 ease;
 

@@ -4,7 +4,7 @@ export const Container = styled.div`
   max-width: 1120px;
   width: 100%;
   margin: 0 auto;
-  color: white;
+  color: var(--white-100);
   font-weight: 700;
   background-color: #03bb967a;
   border-radius: 0.5rem;
@@ -13,7 +13,7 @@ export const Container = styled.div`
     margin: 0 auto;
 
     th {
-      color: #2a004f;
+      color: var(#2a004f);
       border-radius: 0.25rem;
     }
 
