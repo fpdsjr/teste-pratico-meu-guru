@@ -8,6 +8,7 @@ export const Container = styled.div`
   font-weight: 700;
   background-color: #03bb967a;
   border-radius: 0.5rem;
+  box-shadow: 0 8px 8px -10px #06a78d;
 
   table {
     margin: 0 auto;
