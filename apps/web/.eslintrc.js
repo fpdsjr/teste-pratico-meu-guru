@@ -28,14 +28,7 @@ module.exports = {
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.ts', '**/*.spec.ts', '**/*.stories.tsx'] }],
-      'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-          ts: 'never',
-          tsx: 'never',
-        },
-      ],
+      'import/extensions': "off"
     },
     settings: {
       react: {
