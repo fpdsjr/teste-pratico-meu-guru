@@ -10,7 +10,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier"],
+  "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier", "import"],
   "rules": {
     "camelcase": "off",
     "import/no-unresolved": "error",
@@ -53,8 +53,14 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": ["**/*.spec.js"] }]
   },
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     "import/resolver": {
-      "typescript": {}
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "apps/*/tsconfig.json"
+      }
     }
   }
 }
