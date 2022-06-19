@@ -13,7 +13,7 @@ export const Container = styled.div`
     height: 40px;
     border-radius: 0.25rem;
     padding: 0 0.5rem;
-    color: var(#2a004f);
+    color: var(--purple-600);
 
     &:focus {
       border: 2px solid var(--cyan-500);
@@ -24,7 +24,7 @@ export const Container = styled.div`
   select {
     width: 90px;
     height: 40px;
-    color: var(#2a004f);
+    color: var(--purple-600);
     font-weight: 600;
     padding: 0 0.75rem;
     border-radius: 0.25rem;
@@ -37,7 +37,7 @@ export const Container = styled.div`
 
   button {
     width: 90px;
-    color: var(#2a004f);
+    color: var(--purple-600);
     height: 40px;
     font-weight: 600;
     font-size: 1.05rem;

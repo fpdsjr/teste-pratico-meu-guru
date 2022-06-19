@@ -2,9 +2,9 @@ import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --white-100: #FFFFFF
-    --cyan-500: #03bb96
-    --purple-600: #2a004f
+    --white-100: #FFFFFF;
+    --cyan-500: #03bb96;
+    --purple-600: #2a004f;
   }
   
   * {

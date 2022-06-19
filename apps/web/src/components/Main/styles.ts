@@ -13,7 +13,7 @@ export const Container = styled.div`
     margin: 0 auto;
 
     th {
-      color: var(#2a004f);
+      color: var(--purple-600);
       border-radius: 0.25rem;
     }
 
