@@ -72,6 +72,9 @@ class UsersRepository implements IUsersRepository {
         email: true,
         deletado: true,
       },
+      orderBy: {
+        nome: 'asc',
+      },
     });
 
     return listUsersWithoutFilter;
@@ -95,6 +98,9 @@ class UsersRepository implements IUsersRepository {
         nome: true,
         email: true,
         deletado: true,
+      },
+      orderBy: {
+        nome: 'asc',
       },
     });
 
