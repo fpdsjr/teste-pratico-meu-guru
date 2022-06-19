@@ -5,7 +5,7 @@ import { Container } from './styles';
 function Header() {
   return (
     <Container>
-      <h1>MEU GURU</h1>
+      <img src="https://www.meuguru.net/_next/static/media/logo.1a16ba5a.svg" alt="logoImage" />
     </Container>
   );
 }
