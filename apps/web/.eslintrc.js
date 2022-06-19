@@ -29,7 +29,8 @@ module.exports = {
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/*.test.ts', '**/*.spec.ts', '**/*.stories.tsx'] }],
       'import/extensions': "off",
-      'react/no-unused-prop-types': "off"
+      'react/no-unused-prop-types': "off",
+      'react/jsx-no-constructed-context-values': "off"
     },
     settings: {
       react: {
