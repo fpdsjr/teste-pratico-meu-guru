@@ -5,11 +5,11 @@ export const GlobalStyle = createGlobalStyle`
     --white: #FFFFFF
   }
   
-  
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-shadow: 1px 1px 5px  #00000062;
   }
 
   html {
@@ -23,9 +23,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: rgb(42,0,79);
-    background: linear-gradient(90deg, rgba(42,0,79,1) 0%, rgba(3,187,150,1) 100%);
+    background-image: linear-gradient(to right top, #2a004f, #28024b, #250546, #230642, #21083d, #20093c, #20093a, #1f0a39, #1f0a3a, #20093c, #20093d, #21083e);
     -webkit-font-smoothing: antialiased;
+    height: 100vh;
   }
 
   body, input, textarea, button {
