@@ -1,9 +1,3 @@
-import Header from '~/components/Header';
+import Home from '~/screens/Home';
 
-export default function Home() {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
-}
+export default Home;
