@@ -14,7 +14,7 @@ interface IUserProvider {
 
 interface IContext {
   users: Users[];
-  handleFetchWithFilters: (filter: string, search: string) => Promise<void>;
+  handleFetchWithFilters: (filterParam: string, searchParam: string) => Promise<void>;
   handleResetFilters: () => Promise<void>;
 }
 
