@@ -15,23 +15,25 @@ export const Container = styled.div`
     padding: 0 0.5rem;
     color: var(--purple-600);
 
+    transition: all 0.2s ease-in-out;
+
     &:focus {
-      border: 2px solid var(--cyan-500);
-      outline: none;
+      outline: 2px solid var(--cyan-500);
     }
   }
 
   select {
-    width: 90px;
+    width: 100px;
     height: 40px;
     color: var(--purple-600);
     font-weight: 600;
-    padding: 0 0.75rem;
+    padding: 0 0.5rem;
     border-radius: 0.25rem;
 
+    transition: all 0.2s ease;
+
     &:focus {
-      border: 2px solid var(--cyan-500);
-      outline: none;
+      outline: 2px solid var(--cyan-500);
     }
   }
 
@@ -45,7 +47,7 @@ export const Container = styled.div`
     background-color: var(--cyan-500);
     box-shadow: 0 8px 8px -8px #06a78d;
 
-    transition: all 0.5 ease;
+    transition: all 0.2s ease;
 
     &:hover {
       transform: scale(1.07);
