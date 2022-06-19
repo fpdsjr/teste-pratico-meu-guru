@@ -13,9 +13,9 @@
   "plugins": ["@typescript-eslint", "eslint-plugin-import-helpers", "prettier", "import"],
   "rules": {
     "camelcase": "off",
-    "import/no-unresolved": "error",
     "prettier/prettier": "error",
     "no-param-reassign": "off",
+    "import/no-unresolved": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/naming-convention": [
       "error",
@@ -35,13 +35,7 @@
     "no-useless-constructor": "off",
     "no-empty-function": "off",
     "lines-between-class-members": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "ts": "never"
-      }
-    ],
+    "import/extensions": "off",
     "import-helpers/order-imports": [
       "warn",
       {
