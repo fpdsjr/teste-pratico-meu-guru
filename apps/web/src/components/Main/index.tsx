@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table, Thead, Tbody, Tr, Th, Td, TableCaption, TableContainer } from '@chakra-ui/react';
+import { ImCross, ImCheckmark } from 'react-icons/im';
 
 import { Container } from './styles';
 import { useUsers } from '~/context/UserProvider/useUser';
@@ -26,7 +27,7 @@ function Main() {
               <Th>ID</Th>
               <Th>NOME</Th>
               <Th>EMAIL</Th>
-              <Th>EXCLUÍDO</Th>
+              <Th>STATUS</Th>
             </Tr>
           </Thead>
           {users &&
@@ -36,7 +37,7 @@ function Main() {
                   <Td>{id}</Td>
                   <Td>{nome}</Td>
                   <Td>{email}</Td>
-                  <Td>{deletado ? 'TRUE' : 'FALSE'}</Td>
+                  <Td>{deletado ? <ImCross color="red" size={20} fontWeight={700} /> : <ImCheckmark color="green" size={25} fontWeight={700} />}</Td>
                 </Tr>
               </Tbody>
             ))}
