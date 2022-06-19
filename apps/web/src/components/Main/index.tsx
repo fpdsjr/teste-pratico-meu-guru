@@ -18,7 +18,9 @@ function Main() {
     <Container>
       <TableContainer>
         <Table variant="simple" colorScheme="twitter" maxWidth="-moz-max-content">
-          <TableCaption>Imperial to metric conversion factors</TableCaption>
+          <TableCaption color="#2a004f" fontSize="-moz-initial">
+            Teste Prático MeuGuru
+          </TableCaption>
           <Thead>
             <Tr>
               <Th>ID</Th>
