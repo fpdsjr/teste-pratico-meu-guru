@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
+  :root {
+    --white: #FFFFFF
+  }
+  
+  
   * {
     margin: 0;
     padding: 0;
@@ -18,7 +23,8 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: black;
+    background: rgb(42,0,79);
+    background: linear-gradient(90deg, rgba(42,0,79,1) 0%, rgba(3,187,150,1) 100%);
     -webkit-font-smoothing: antialiased;
   }
 
