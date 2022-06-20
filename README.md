@@ -73,7 +73,7 @@ Para rodar a aplicação é necessário ter instalado o [Node](https://nodejs.or
 
 ## Rodando no Node
 
-O Projeto conta com um repositório monorepo utilizando yarn workspaces, e turborepo, para ligar o projeto so precisamos fazer o build e depois o start. veja abaixo:
+O Projeto conta com um repositório monorepo utilizando yarn workspaces, e turborepo, para ligar o projeto só precisamos fazer o build e depois o start. veja abaixo:
 
 Clone o projeto
 
@@ -121,7 +121,7 @@ Agora para rodar o projeto no modo de produção já integrado e funcionando.
 <summary><b>Turborepo</b></summary>
 
 
-Para rodar os testes no turborepo so precisamos de um banco de dados de teste para os teste de integração, seguindo os passos abaixo com docker fica muito simples.
+Para rodar os testes no turborepo só precisamos de um banco de dados de teste para os teste de integração, seguindo os passos abaixo com docker fica muito simples.
 
 Entre no diretório raiiz
 
@@ -147,7 +147,7 @@ Aqui ligaremos o banco de dados de testes.
   docker-compose -up
 ```
 
-Pronto agora so voltar para a raiz do projeto e rodar os testes com um yarn test e tanto os testes de backend e frontend serão executados.
+Pronto agora só voltar para a raiz do projeto e rodar os testes com um yarn test e tanto os testes de backend e frontend serão executados.
 
 
 ```bash
