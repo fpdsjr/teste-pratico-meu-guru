@@ -5,7 +5,8 @@
         "^build"
       ],
       "outputs": [
-        "dist/**"
+        "dist/**",
+        ".next/**"
       ]
     },
     "test": {
@@ -15,6 +16,9 @@
     },
     "dev": {
       "cache": false
+    },
+    "lint": {
+      "outputs": []
     }
   },
   "lint-staged": {

@@ -12,7 +12,8 @@
     "test": "turbo run test",
     "dev": "turbo run dev --parallel",
     "postinstall": "husky install .husky",
-    "prepare": "husky install .husky"
+    "prepare": "husky install .husky",
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "husky": "^8.0.1",
