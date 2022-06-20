@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres:13
+    container_name: meu_guru_db
+    restart: always
+    environment:
+      - POSTGRES_USER=meuguru
+      - POSTGRES_PASSWORD=meuguru_password
+      - POSTGRES_DB=meuguru_db
+  server:
+    build: ./apps/server
+    ports:
+      - 4000:4000
+    environment:
+      - DATABASE_URL=postgresql://meuguru:meuguru_password@db:5432/meuguru_db?schema=public
+      - DATABASE_URL_TEST=postgresql://meuguru:meuguru_password@db:5432/meuguru_db_test?schema=public
+    depends_on:
+      - db
+  web:
+    build: ./apps/web
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
