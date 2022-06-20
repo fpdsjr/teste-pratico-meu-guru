@@ -22,7 +22,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
     return user;
   }
 
-  async findUserById(id: string): Promise<User> {
+  async findUserById(id: number): Promise<User> {
     const findUserById = this.usersRepository.find(user => user.id === id);
 
     return findUserById!;
@@ -43,7 +43,7 @@ class UsersRepositoryInMemory implements IUsersRepository {
     return updateUser;
   }
 
-  async deleteUser(id: string): Promise<User> {
+  async deleteUser(id: number): Promise<User> {
     const findUser = await this.findUserById(id);
 
     const deleteUser = { ...findUser, deletado: true };

@@ -9,7 +9,9 @@ class UpdateUserController {
     const { nome, email, senha } = request.body;
     const updateUserUseCase = container.resolve(UpdateUserUseCase);
 
-    const updateUser = await updateUserUseCase.execute({ id, nome, email, senha });
+    const convertIdToNumber = Number(id);
+
+    const updateUser = await updateUserUseCase.execute({ id: convertIdToNumber, nome, email, senha });
 
     return response.status(200).json(updateUser);
   }

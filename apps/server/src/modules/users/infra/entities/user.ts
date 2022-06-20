@@ -1,7 +1,5 @@
-import { v4 as uuidv4 } from 'uuid';
-
 class User {
-  id: string;
+  id: number;
 
   nome: string;
 
@@ -13,7 +11,7 @@ class User {
 
   constructor() {
     if (!this.id) {
-      this.id = uuidv4();
+      this.id = Math.floor(Math.random() * 1000);
     }
   }
 }

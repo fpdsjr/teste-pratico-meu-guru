@@ -7,7 +7,7 @@ import { IListUsersByPaginationDTO } from '../../dtos/IListUsersByPaginationDTO'
 interface IUsersRepository {
   createUser({ nome, email, senha }: ICreateUserDTO): Promise<Omit<User, 'senha'>>;
   updateUser({ id, nome, email, senha }: IUpdateUserDTO): Promise<Omit<User, 'senha'>>;
-  deleteUser(id: string): Promise<Omit<User, 'senha'>>;
+  deleteUser(id: number): Promise<Omit<User, 'senha'>>;
   listUsersByPagination({ page, limit, filter, search }: IListUsersByPaginationDTO): Promise<Omit<User, 'senha'>[]>;
   listUsersWithoutFilter({ page, limit }: { page: number; limit: number }): Promise<Omit<User, 'senha'>[]>;
 }

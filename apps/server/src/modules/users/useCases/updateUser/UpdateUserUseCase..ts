@@ -3,7 +3,7 @@ import { hashPassword } from '~/utils/hashPassword';
 import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
-  id: string;
+  id: number;
   nome: string;
   email: string;
   senha: string;

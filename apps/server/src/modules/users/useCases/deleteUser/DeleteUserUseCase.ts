@@ -9,7 +9,7 @@ class DeleteUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute(id: string): Promise<Omit<User, 'senha'>> {
+  async execute(id: number): Promise<Omit<User, 'senha'>> {
     const deleteUser = await this.usersRepository.deleteUser(id);
 
     return deleteUser;

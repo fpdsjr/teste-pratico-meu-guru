@@ -46,7 +46,7 @@ class UsersRepository implements IUsersRepository {
     return updateUser;
   }
 
-  async deleteUser(id: string): Promise<Omit<User, 'senha'>> {
+  async deleteUser(id: number): Promise<Omit<User, 'senha'>> {
     const softDeleteUser = await prisma.users.delete({
       where: {
         id,
