@@ -1,4 +1,4 @@
-name: root
+name: main
 
 on:
   push:
@@ -42,11 +42,11 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: build
-      - run: yarn build
+        run: yarn build
 
       - name: run db test container
         working-directory: ./apps/server
-      - run: docker-compose up --build -d
+        run: docker-compose up --build -d
 
       - name: run tests
-      - run: yarn test
+        run: yarn test
