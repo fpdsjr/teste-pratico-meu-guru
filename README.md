@@ -189,6 +189,7 @@ Pronto agora so voltar para a raiz do projeto e rodar os testes com um yarn test
 - Swc
 - Docker
 - Eslint
+- Husky
 - Prettier
 - Lint-Staged
 - Supertest
