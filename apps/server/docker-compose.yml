@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  db:
+    image: postgres
+    container_name: test_db_meu_guru_challenger
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=meu_guru_challenger
+    volumes:
+      - meu-guru:/data/postgres
+
+volumes:
+  meu-guru:
+    driver: local
