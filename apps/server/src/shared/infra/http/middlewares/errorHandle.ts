@@ -1,7 +1,7 @@
 import { AppError } from '~/shared/errors/AppError';
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 
-export async function errorHandle(err: Error, _request: Request, response: Response, _next: NextFunction): Promise<Response> {
+export async function errorHandle(err: Error, _request: Request, response: Response): Promise<Response> {
   if (err instanceof AppError) {
     return response.status(err.statusCode).json({
       message: err.message,
