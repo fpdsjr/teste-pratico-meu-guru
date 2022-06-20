@@ -165,6 +165,7 @@ Pronto agora so voltar para a raiz do projeto e rodar os testes com um yarn test
 - React
 - Nextjs
 - CharkaUi
+- ContextApi
 - TypeScript
 - React Hooks
 - Custom Hooks
