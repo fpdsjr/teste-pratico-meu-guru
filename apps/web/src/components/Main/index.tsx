@@ -37,7 +37,9 @@ function Main() {
                   <Td>{id}</Td>
                   <Td>{nome}</Td>
                   <Td>{email}</Td>
-                  <Td>{deletado ? <ImCross color="red" size={20} fontWeight={700} /> : <ImCheckmark color="green" size={25} fontWeight={700} />}</Td>
+                  <Td>
+                    {deletado ? <ImCross color="##ff0000" size={20} fontWeight={700} /> : <ImCheckmark color="#02ff0f" size={25} fontWeight={700} />}
+                  </Td>
                 </Tr>
               </Tbody>
             ))}
