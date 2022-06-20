@@ -5,15 +5,6 @@ const prisma = new PrismaClient();
 async function main() {
   await prisma.users.create({
     data: {
-      nome: 'bob',
-      email: 'bob@prisma.io',
-      senha: '123456',
-      deletado: false,
-    },
-  });
-
-  await prisma.users.create({
-    data: {
       nome: 'Felipe Davi André Ferreira',
       email: 'felipe-ferreira90@cenavip.com.br',
       senha: '$argon2i$v=19$m=16,t=2,p=1$ZGFzZGRhc2Rhc2Rhc2Rhcw$GKioPhXoRy1npoF9YzcEoQ',
