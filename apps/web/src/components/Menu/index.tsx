@@ -3,7 +3,7 @@ import { useUsers } from '~/context/UserProvider/useUser';
 
 import { Container } from './styles';
 
-function Section() {
+function Menu() {
   const [inputValue, setInputValue] = useState('');
   const [selectOption, setSelectOption] = useState('nome');
   const { handleFetchWithFilters, handleResetFilters } = useUsers();
@@ -30,4 +30,4 @@ function Section() {
   );
 }
 
-export default Section;
+export default Menu;

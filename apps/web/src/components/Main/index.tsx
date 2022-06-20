@@ -38,7 +38,11 @@ function Main() {
                   <Td>{nome}</Td>
                   <Td>{email}</Td>
                   <Td>
-                    {deletado ? <ImCross color="#ff0000" size={20} fontWeight={700} /> : <ImCheckmark color="#02ff0f" size={25} fontWeight={700} />}
+                    {deletado ? (
+                      <ImCross data-testid="deleteSvg" color="#ff0000" size={20} fontWeight={700} />
+                    ) : (
+                      <ImCheckmark data-testid="userSvg" color="#02ff0f" size={25} fontWeight={700} />
+                    )}
                   </Td>
                 </Tr>
               </Tbody>
