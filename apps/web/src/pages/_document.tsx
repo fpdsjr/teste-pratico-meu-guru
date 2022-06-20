@@ -13,7 +13,6 @@ export default class MyDocument extends Document {
             type="image/x-icon"
             href="https://t0.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://www.meuguru.net/&size=16"
           />
-          <title>MeuGuru</title>
         </Head>
         <body>
           <Main />
