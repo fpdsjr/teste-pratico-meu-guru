@@ -16,7 +16,7 @@ function Menu() {
   return (
     <Container>
       <input type="text" value={inputValue} placeholder="Digite sua busca." onChange={e => setInputValue(e.target.value)} />
-      <select value={selectOption} onChange={e => setSelectOption(e.target.value)}>
+      <select value={selectOption} data-testid="select-option" onChange={e => setSelectOption(e.target.value)}>
         <option value="nome">Nome</option>
         <option value="email">Email</option>
       </select>
