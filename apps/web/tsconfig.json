@@ -19,6 +19,6 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Header/Header.spec.tss", "./jest-setup.ts"],
   "exclude": ["node_modules"]
 }
