@@ -25,7 +25,7 @@ jobs:
         run: yarn lint
 
 
-  build:
+  test:
     runs-on: ubuntu-20.04
 
     strategy:
@@ -41,12 +41,12 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: build
-      - run: yarn build
+      - name: Run turborepo build
+        run: yarn build
 
-      - name: run db test container
+      - name: Run test db container
         working-directory: ./apps/server
-      - run: docker-compose up --build -d
+        run: docker-compose up --build -d
 
-      - name: run tests
-      - run: yarn test
+      - name: Run turborepo tests
+        run: yarn test
