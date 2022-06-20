@@ -73,7 +73,7 @@ class UsersRepository implements IUsersRepository {
         deletado: true,
       },
       orderBy: {
-        nome: 'asc',
+        id: 'asc',
       },
     });
 
@@ -100,7 +100,7 @@ class UsersRepository implements IUsersRepository {
         deletado: true,
       },
       orderBy: {
-        nome: 'asc',
+        id: 'asc',
       },
     });
 
