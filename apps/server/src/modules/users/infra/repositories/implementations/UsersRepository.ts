@@ -91,6 +91,7 @@ class UsersRepository implements IUsersRepository {
       where: {
         [filter]: {
           contains: search,
+          mode: 'insensitive',
         },
       },
       select: {
