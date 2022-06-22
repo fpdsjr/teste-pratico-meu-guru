@@ -195,6 +195,7 @@ Pronto agora só voltar para a raiz do projeto e rodar os testes com um yarn tes
 - Lint-Staged
 - Supertest
 - Jest
+- Joi
 - Tsyringe
 
 ## Authors
